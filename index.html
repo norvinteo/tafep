@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Employment Training - TAFEP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Fixed Logo -->
+    <div class="fixed-logo-container">
+        <img src="mavenside-logo.svg" alt="Mavenside" class="fixed-logo">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+        <button class="nav-btn prev" id="prevBtn" aria-label="Previous slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+        <button class="nav-btn fullscreen" id="fullscreenBtn" aria-label="Toggle fullscreen">
+            <svg class="expand-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+            </svg>
+            <svg class="compress-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+            </svg>
+        </button>
+        <button class="nav-btn next" id="nextBtn" aria-label="Next slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Slide 1: Hero Cover -->
+    <section class="slide active" id="slide1">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80')"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-logo-container">
+                <img src="mavenside-logo.svg" alt="Mavenside" class="hero-logo">
+            </div>
+            <h1 class="hero-subtitle-main">Fair Employment Excellence</h1>
+            <p class="hero-subtitle">Building Inclusive Workplaces Through Progressive Practices</p>
+            <p class="hero-meta">Your Partner in TAFEP Compliance & Workplace Fairness</p>
+            <button class="cta-btn" onclick="nextSlide()">Begin Your Journey</button>
+        </div>
+    </section>
+
+    <!-- Slide 2: Table of Contents -->
+    <section class="slide" id="slide2">
+        <div class="content-wrapper">
+            <h2 class="slide-title">Your Roadmap to Fair Employment</h2>
+            <p class="slide-subtitle">Mavenside guides you through Singapore's workplace fairness landscape</p>
+            <div class="toc-grid">
+                <div class="toc-card" onclick="goToSlide(3)">
+                    <div class="toc-icon">🏢</div>
+                    <h3>Introduction to TAFEP</h3>
+                    <p>Mission, roles, and vision</p>
+                </div>
+                <div class="toc-card" onclick="goToSlide(4)">
+                    <div class="toc-icon">⚖️</div>
+                    <h3>Legal Framework</h3>
+                    <p>Three pillars of legislation</p>
+                </div>
+                <div class="toc-card" onclick="goToSlide(5)">
+                    <div class="toc-icon">🛡️</div>
+                    <h3>Protected Characteristics</h3>
+                    <p>Five categories of protection</p>
+                </div>
+                <div class="toc-card" onclick="goToSlide(6)">
+                    <div class="toc-icon">📋</div>
+                    <h3>Fair Recruitment</h3>
+                    <p>Best practices for hiring</p>
+                </div>
+                <div class="toc-card" onclick="goToSlide(7)">
+                    <div class="toc-icon">📊</div>
+                    <h3>FCF Requirements</h3>
+                    <p>Compliance and penalties</p>
+                </div>
+                <div class="toc-card" onclick="goToSlide(8)">
+                    <div class="toc-icon">👥</div>
+                    <h3>Employment Practices</h3>
+                    <p>HR systems and policies</p>
+                </div>
+                <div class="toc-card" onclick="goToSlide(9)">
+                    <div class="toc-icon">🚨</div>
+                    <h3>Grievance Handling</h3>
+                    <p>Zero tolerance approach</p>
+                </div>
+                <div class="toc-card" onclick="goToSlide(10)">
+                    <div class="toc-icon">✅</div>
+                    <h3>Responsible Dismissals</h3>
+                    <p>Fair practices and compliance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Introduction to TAFEP -->
+    <section class="slide" id="slide3">
+        <div class="content-wrapper">
+            <h2 class="slide-title">Understanding TAFEP</h2>
+            <p class="slide-subtitle">Your guide to fair employment practices in Singapore</p>
+            
+            <div class="centered-content">
+                <div class="mission-section">
+                    <h3>Our Mission</h3>
+                    <p class="mission-text">Supporting both employers and workers to build fair and progressive workplaces in Singapore.</p>
+                </div>
+                
+                <div class="vision-box-centered">
+                    <h3>Vision</h3>
+                    <p class="vision-statement">"Fair employment for all"</p>
+                    <p class="vision-description">Creating workplaces where every individual is valued based on merit, not personal characteristics.</p>
+                </div>
+                
+                <h3 class="section-title">Two Key Roles</h3>
+                <div class="role-cards-grid">
+                    <div class="role-card">
+                        <div class="role-icon">🏢</div>
+                        <h4>Resource for Employers</h4>
+                        <ul>
+                            <li>Tools and templates</li>
+                            <li>Training workshops</li>
+                            <li>Best practices guidance</li>
+                            <li>Policy development</li>
+                        </ul>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-icon">👤</div>
+                        <h4>Recourse for Employees</h4>
+                        <ul>
+                            <li>Discrimination support</li>
+                            <li>Harassment advice</li>
+                            <li>Dispute resolution</li>
+                            <li>Rights protection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Legal Framework -->
+    <section class="slide" id="slide4">
+        <div class="content-wrapper">
+            <h2 class="slide-title">Navigating the Legal Landscape</h2>
+            <p class="slide-subtitle">Understanding Singapore's evolving workplace fairness legislation</p>
+            
+            <div class="pillars-container">
+                <div class="pillar" data-pillar="1">
+                    <div class="pillar-icon">🛡️</div>
+                    <h3>Protect Workers</h3>
+                    <ul>
+                        <li>Prohibit discrimination</li>
+                        <li>Fair treatment at all stages</li>
+                        <li>Protection from retaliation</li>
+                    </ul>
+                </div>
+                <div class="pillar" data-pillar="2">
+                    <div class="pillar-icon">🤝</div>
+                    <h3>Preserve Harmony</h3>
+                    <ul>
+                        <li>Emphasize mediation</li>
+                        <li>Legal action as last resort</li>
+                        <li>Focus on education</li>
+                    </ul>
+                </div>
+                <div class="pillar" data-pillar="3">
+                    <div class="pillar-icon">📈</div>
+                    <h3>Support Growth</h3>
+                    <ul>
+                        <li>Productive workforce</li>
+                        <li>Better talent attraction</li>
+                        <li>Enhanced reputation</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>Important:</strong> The legislation works together with TGFEP (Tripartite Guidelines on Fair Employment Practices) to create a comprehensive framework.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Protected Characteristics -->
+    <section class="slide" id="slide5">
+        <div class="content-wrapper">
+            <h2 class="slide-title">Protected Characteristics</h2>
+            <p class="slide-subtitle">Five categories that cannot be used for discrimination</p>
+            
+            <div class="characteristics-grid">
+                <div class="characteristic-card">
+                    <div class="char-icon">🎂</div>
+                    <h3>Age</h3>
+                    <p>Cannot discriminate based on how old or young someone is</p>
+                </div>
+                <div class="characteristic-card">
+                    <div class="char-icon">🌍</div>
+                    <h3>Nationality</h3>
+                    <p>Fair treatment regardless of country of origin</p>
+                </div>
+                <div class="characteristic-card">
+                    <div class="char-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Sex, Marital & Family</h3>
+                    <p>Gender equality, no bias against family status or caregiving</p>
+                </div>
+                <div class="characteristic-card">
+                    <div class="char-icon">🕊️</div>
+                    <h3>Race, Religion, Language</h3>
+                    <p>Respect for diversity, no ethnic or religious preference</p>
+                </div>
+                <div class="characteristic-card">
+                    <div class="char-icon">♿</div>
+                    <h3>Disability & Mental Health</h3>
+                    <p>Equal opportunities with reasonable accommodations</p>
+                </div>
+            </div>
+            
+            <div class="reminder-box">
+                <p><strong>Remember:</strong> Discrimination can be unintentional, but it's still discrimination. Everyone can learn, change, and implement fair practices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Fair Recruitment -->
+    <section class="slide" id="slide6">
+        <div class="content-wrapper">
+            <h2 class="slide-title">Fair Recruitment Practices</h2>
+            
+            <div class="recruitment-sections">
+                <div class="recruitment-section">
+                    <h3>📢 Job Advertisements</h3>
+                    <div class="do-dont-grid">
+                        <div class="do-box">
+                            <h4>✓ Must Include</h4>
+                            <ul>
+                                <li>Clear job requirements</li>
+                                <li>Required qualifications</li>
+                                <li>Salary range (FCF)</li>
+                                <li>Company name</li>
+                            </ul>
+                        </div>
+                        <div class="dont-box">
+                            <h4>✗ Must Avoid</h4>
+                            <ul>
+                                <li>Age preferences</li>
+                                <li>Gender specifications</li>
+                                <li>Nationality restrictions</li>
+                                <li>Discriminatory language</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recruitment-section">
+                    <h3>📝 Application & Interviews</h3>
+                    <div class="best-practices">
+                        <div class="practice-item">
+                            <strong>Forms:</strong> Only request job-relevant information
+                        </div>
+                        <div class="practice-item">
+                            <strong>Interviews:</strong> Structured format with consistent questions
+                        </div>
+                        <div class="practice-item">
+                            <strong>Documentation:</strong> Keep records for at least 1 year
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fcf-reminder">
+                    <p><strong>FCF Requirement:</strong> Post on MyCareersFuture for 14 consecutive days before EP/S Pass applications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: FCF Requirements -->
+    <section class="slide" id="slide7">
+        <div class="content-wrapper">
+            <h2 class="slide-title">Fair Consideration Framework</h2>
+            
+            <div class="fcf-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <h4>Job Posting</h4>
+                    <p>MyCareersFuture for 14 days</p>
+                </div>
+                <div class="timeline-arrow">→</div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <h4>Fair Consideration</h4>
+                    <p>Review all SG candidates</p>
+                </div>
+                <div class="timeline-arrow">→</div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <h4>Documentation</h4>
+                    <p>Keep all records</p>
+                </div>
+            </div>
+            
+            <h3>Enhanced Penalties</h3>
+            <div class="penalty-chart">
+                <canvas id="penaltyChart"></canvas>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Criminal Penalties for False Declarations</h4>
+                <p>Up to 2 years imprisonment and/or $20,000 fine</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: In-Employment Practices -->
+    <section class="slide" id="slide8">
+        <div class="content-wrapper">
+            <h2 class="slide-title">Fair In-Employment Practices</h2>
+            
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="showTab('remuneration')">Remuneration</button>
+                    <button class="tab-btn" onclick="showTab('performance')">Performance</button>
+                    <button class="tab-btn" onclick="showTab('training')">Training</button>
+                    <button class="tab-btn" onclick="showTab('promotion')">Promotion</button>
+                </div>
+                
+                <div class="tab-content active" id="remuneration">
+                    <h3>💰 Fair Remuneration</h3>
+                    <div class="principles-grid">
+                        <div class="principle">
+                            <h4>Base pay on:</h4>
+                            <ul>
+                                <li>Job value</li>
+                                <li>Individual contribution</li>
+                                <li>Skills & experience</li>
+                                <li>Market benchmarks</li>
+                            </ul>
+                        </div>
+                        <div class="principle">
+                            <h4>NOT on:</h4>
+                            <ul>
+                                <li>Previous salary</li>
+                                <li>Protected characteristics</li>
+                                <li>Personal relationships</li>
+                                <li>Non-job factors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="performance">
+                    <h3>📊 Performance Management</h3>
+                    <ul class="checklist">
+                        <li>Clear, measurable KPIs</li>
+                        <li>Regular reviews (quarterly recommended)</li>
+                        <li>Two-way feedback valued</li>
+                        <li>Documentation of all reviews</li>
+                        <li>Appeal process available</li>
+                    </ul>
+                </div>
+                
+                <div class="tab-content" id="training">
+                    <h3>📚 Training & Development</h3>
+                    <ul class="checklist">
+                        <li>Equal access to opportunities</li>
+                        <li>Selection based on potential</li>
+                        <li>Support for skills upgrading</li>
+                        <li>No discrimination in programs</li>
+                    </ul>
+                </div>
+                
+                <div class="tab-content" id="promotion">
+                    <h3>📈 Promotion & Posting</h3>
+                    <ul class="checklist">
+                        <li>Open communication of opportunities</li>
+                        <li>Objective selection criteria</li>
+                        <li>Consistent evaluation process</li>
+                        <li>Feedback for unsuccessful candidates</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: Grievance Handling -->
+    <section class="slide" id="slide9">
+        <div class="content-wrapper">
+            <h2 class="slide-title">Grievance Handling</h2>
+            
+            <div class="zero-tolerance">
+                <h3>🚫 Zero Tolerance Policy</h3>
+                <div class="tolerance-items">
+                    <div class="tolerance-item">Harassment</div>
+                    <div class="tolerance-item">Bullying</div>
+                    <div class="tolerance-item">Discrimination</div>
+                    <div class="tolerance-item">Retaliation</div>
+                </div>
+            </div>
+            
+            <div class="process-flow">
+                <h3>Grievance Process Flow</h3>
+                <div class="flow-chart">
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <h4>Report</h4>
+                        <p>Multiple channels available</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <h4>Acknowledge</h4>
+                        <p>Within 3 working days</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <h4>Investigate</h4>
+                        <p>Within 7 days start</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <h4>Resolve</h4>
+                        <p>Target: 30 days</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="confidentiality-note">
+                <p><strong>🔒 Confidentiality:</strong> Information shared on need-to-know basis with secure documentation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: Responsible Dismissals -->
+    <section class="slide" id="slide10">
+        <div class="content-wrapper">
+            <h2 class="slide-title">Your Compliance Partner</h2>
+            <p class="slide-subtitle">Implementing fair practices in difficult workplace decisions</p>
+            
+            <div class="dismissal-section">
+                <h3>Valid Reasons for Dismissal</h3>
+                <div class="reason-cards">
+                    <div class="reason-card">
+                        <h4>Misconduct</h4>
+                        <p>Due inquiry & evidence required</p>
+                    </div>
+                    <div class="reason-card">
+                        <h4>Poor Performance</h4>
+                        <p>Warnings & improvement plan</p>
+                    </div>
+                    <div class="reason-card">
+                        <h4>Redundancy</h4>
+                        <p>Fair selection & benefits</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alternatives-section">
+                <h3>Retrenchment Alternatives (Last Resort)</h3>
+                <div class="alternatives-list">
+                    <div class="alternative">1. Shorter work week</div>
+                    <div class="alternative">2. Redeployment</div>
+                    <div class="alternative">3. Reskilling</div>
+                    <div class="alternative">4. Voluntary separation</div>
+                    <div class="alternative">5. Hiring freeze</div>
+                </div>
+            </div>
+            
+            <div class="compliance-checklist">
+                <h3>✅ Compliance Checklist</h3>
+                <ul>
+                    <li>Review all HR policies</li>
+                    <li>Update recruitment practices</li>
+                    <li>Establish grievance procedures</li>
+                    <li>Document all decisions</li>
+                    <li>Train managers on fair practices</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

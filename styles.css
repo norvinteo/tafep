@@ -1,0 +1,1196 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: hidden;
+    background: #0a0a0a;
+    color: #fff;
+}
+
+/* Navigation */
+.navigation {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.nav-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Fullscreen button icons */
+.nav-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Progress Bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00AAE3, #1C2E4A);
+    width: 10%;
+    transition: width 0.5s ease;
+}
+
+/* Fixed Logo */
+.fixed-logo-container {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 1001;
+    background: white;
+    padding: 20px 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.fixed-logo {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+/* Hide logo on hero slide for cleaner look */
+body.on-hero .fixed-logo-container {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Slides */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    background: #0a0a0a;
+    overflow: hidden;
+}
+
+/* Slide Backgrounds */
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Dark overlay for all slides with backgrounds */
+.slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+/* Slide 2 - Table of Contents */
+#slide2::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Slide 3 - TAFEP Introduction */
+#slide3::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px);
+}
+
+/* Slide 4 - Legal Framework */
+#slide4::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(59, 130, 246, 0.2)),
+                url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Slide 5 - Protected Characteristics */
+#slide5::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(139, 92, 246, 0.2)),
+                url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Slide 6 - Fair Recruitment */
+#slide6::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(34, 197, 94, 0.1)),
+                url('https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Slide 7 - FCF Requirements */
+#slide7::before {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(239, 68, 68, 0.1) 100%),
+                url('https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Slide 8 - Employment Practices */
+#slide8::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(59, 130, 246, 0.15)),
+                url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Slide 9 - Grievance Handling */
+#slide9::before {
+    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(239, 68, 68, 0.1)),
+                url('https://images.unsplash.com/photo-1573167243872-43c6433b9d40?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Slide 10 - Dismissals & Compliance */
+#slide10::before {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(34, 197, 94, 0.1) 100%),
+                url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide.prev {
+    transform: translateX(-100%);
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    width: clamp(75vw, 80vw, 1800px);
+    height: 88vh;
+    padding: clamp(30px, 4vw, 60px);
+    position: relative;
+    z-index: 2;
+    background: rgba(28, 46, 74, 0.9);
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0 auto;
+    max-width: 1800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Mavenside Footer */
+.mavenside-footer {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mavenside-footer::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.mavenside-footer::after {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Custom Scrollbar for Content Wrapper */
+.content-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.content-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.content-wrapper::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Slide 1: Hero */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.4);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(59,130,246,0.3) 100%);
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 10;
+    animation: fadeInUp 1s ease;
+}
+
+/* Hero Logo Container */
+.hero-logo-container {
+    display: inline-block;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 1s ease;
+}
+
+.hero-logo {
+    width: 180px;
+    height: auto;
+    display: block;
+}
+
+.hero-subtitle-main {
+    font-size: clamp(3.5rem, 8vw, 10rem);
+    font-weight: 700;
+    margin-bottom: clamp(20px, 3vh, 40px);
+    background: linear-gradient(135deg, #fff 0%, #00AAE3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.2rem, 2.5vw, 2.8rem);
+    font-weight: 300;
+    margin-bottom: clamp(10px, 1.5vh, 20px);
+    opacity: 0.9;
+}
+
+.hero-meta {
+    font-size: clamp(1rem, 1.5vw, 1.8rem);
+    opacity: 0.7;
+    margin-bottom: clamp(25px, 4vh, 50px);
+}
+
+.cta-btn {
+    padding: 24px 70px;
+    font-size: clamp(1.4rem, 1.8vw, 2rem);
+    font-weight: 600;
+    background: linear-gradient(135deg, #00AAE3, #1C2E4A);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 170, 227, 0.5);
+}
+
+/* Slide 2: Table of Contents */
+.slide-title {
+    font-size: clamp(2.2rem, 4.5vw, 5.5rem);
+    font-weight: 700;
+    margin-bottom: clamp(15px, 3vh, 40px);
+    text-align: center;
+    line-height: 1.2;
+}
+
+.slide-subtitle {
+    font-size: clamp(1.1rem, 1.8vw, 2.2rem);
+    opacity: 0.8;
+    text-align: center;
+    margin-bottom: clamp(10px, 1.5vh, 25px);
+    font-weight: 300;
+}
+
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: clamp(12px, 1.8vw, 30px);
+    margin-top: clamp(10px, 1.5vh, 30px);
+    height: calc(100% - clamp(140px, 18vh, 280px));
+}
+
+.toc-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: clamp(12px, 1.8vw, 30px) clamp(8px, 1.2vw, 20px);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.toc-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.toc-icon {
+    font-size: clamp(2.5rem, 4vw, 6rem);
+    margin-bottom: clamp(8px, 1.5vh, 20px);
+}
+
+.toc-card h3 {
+    font-size: clamp(1.2rem, 1.8vw, 2.4rem);
+    margin-bottom: clamp(5px, 1vh, 15px);
+    font-weight: 600;
+}
+
+.toc-card p {
+    opacity: 0.8;
+    font-size: clamp(0.9rem, 1.2vw, 1.6rem);
+}
+
+/* Slide 3: TAFEP - Balanced Layout */
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(10px, 2vh, 30px);
+    width: 100%;
+}
+
+.mission-section {
+    text-align: center;
+}
+
+.mission-section h3 {
+    font-size: clamp(1.2rem, 2vw, 2.5rem);
+    margin-bottom: clamp(8px, 1vh, 15px);
+    color: #00AAE3;
+}
+
+.mission-text {
+    font-size: clamp(1.2rem, 2.2vw, 2.8rem);
+    line-height: 1.4;
+    max-width: 90%;
+    font-weight: 300;
+}
+
+.vision-box-centered {
+    background: linear-gradient(135deg, rgba(0, 170, 227, 0.15), rgba(28, 46, 74, 0.2));
+    border-radius: 20px;
+    padding: 20px 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+}
+
+.vision-box-centered h3 {
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+    margin-bottom: clamp(8px, 1vh, 15px);
+    color: #00AAE3;
+}
+
+.vision-statement {
+    font-size: clamp(1.6rem, 2.8vw, 3.5rem);
+    font-weight: 600;
+    margin-bottom: clamp(5px, 1vh, 12px);
+    color: #fff;
+}
+
+.vision-description {
+    font-size: clamp(1.1rem, 1.6vw, 2rem);
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.section-title {
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+    text-align: center;
+    margin-bottom: clamp(10px, 2vh, 25px);
+    color: #00AAE3;
+}
+
+.role-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.role-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.role-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.role-icon {
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+    margin-bottom: clamp(8px, 1vh, 15px);
+}
+
+.role-card h4 {
+    font-size: clamp(1.1rem, 1.6vw, 2rem);
+    margin-bottom: clamp(8px, 1vh, 15px);
+    color: #00AAE3;
+}
+
+.role-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.role-card li {
+    padding: clamp(2px, 0.3vh, 4px) 0;
+    opacity: 0.9;
+    font-size: clamp(0.9rem, 1.2vw, 1.5rem);
+}
+
+.role-card li:before {
+    content: "→ ";
+    color: #00AAE3;
+    margin-right: 5px;
+}
+
+/* Slide 4: Legal Framework */
+.pillars-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(15px, 3vw, 40px);
+    margin: clamp(20px, 3vh, 40px) 0;
+}
+
+.pillar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: clamp(15px, 2.5vw, 30px);
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.pillar:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.1));
+}
+
+.pillar-icon {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    margin-bottom: clamp(10px, 2vh, 20px);
+}
+
+.pillar h3 {
+    font-size: clamp(1.2rem, 1.8vw, 2rem);
+    margin-bottom: clamp(10px, 2vh, 20px);
+    color: #00AAE3;
+}
+
+.pillar ul {
+    list-style: none;
+    text-align: left;
+}
+
+.pillar li {
+    padding: clamp(4px, 0.8vh, 8px) 0;
+    opacity: 0.9;
+    font-size: clamp(0.95rem, 1.4vw, 1.4rem);
+}
+
+.info-box {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 10px;
+    padding: clamp(15px, 2vw, 20px);
+    margin-top: clamp(20px, 3vh, 30px);
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+}
+
+/* Slide 5: Protected Characteristics */
+.characteristics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: clamp(15px, 2vw, 20px);
+    margin: clamp(20px, 3vh, 40px) 0;
+}
+
+.characteristic-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: clamp(15px, 2vw, 25px);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.characteristic-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.05);
+}
+
+.char-icon {
+    font-size: clamp(2rem, 3.2vw, 3.2rem);
+    margin-bottom: clamp(10px, 1.5vh, 15px);
+}
+
+.characteristic-card h3 {
+    font-size: clamp(1.1rem, 1.8vw, 1.8rem);
+    margin-bottom: clamp(5px, 1vh, 10px);
+    color: #00AAE3;
+}
+
+.characteristic-card p {
+    font-size: clamp(0.9rem, 1.3vw, 1.2rem);
+    opacity: 0.8;
+}
+
+.reminder-box {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.1));
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 10px;
+    padding: clamp(15px, 2vw, 20px);
+    margin-top: clamp(20px, 3vh, 30px);
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+}
+
+/* Slide 6: Fair Recruitment */
+.recruitment-sections {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3vh, 30px);
+}
+
+.recruitment-section h3 {
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    margin-bottom: clamp(10px, 2vh, 20px);
+    color: #00AAE3;
+}
+
+.do-dont-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(15px, 2vw, 20px);
+}
+
+.do-box, .dont-box {
+    border-radius: 10px;
+    padding: clamp(15px, 2vw, 20px);
+}
+
+.do-box {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.dont-box {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.do-box h4 {
+    color: #22c55e;
+    margin-bottom: clamp(10px, 1.5vh, 15px);
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+}
+
+.dont-box h4 {
+    color: #ef4444;
+    margin-bottom: clamp(10px, 1.5vh, 15px);
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+}
+
+.do-box ul, .dont-box ul {
+    list-style: none;
+}
+
+.do-box li, .dont-box li {
+    padding: clamp(2px, 0.4vh, 4px) 0;
+    opacity: 0.9;
+    font-size: clamp(0.85rem, 1.2vw, 1.2rem);
+}
+
+.best-practices {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: clamp(15px, 2vw, 20px);
+}
+
+.practice-item {
+    padding: clamp(5px, 1vh, 10px) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: clamp(0.95rem, 1.4vw, 1.4rem);
+}
+
+.practice-item:last-child {
+    border-bottom: none;
+}
+
+.fcf-reminder {
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 10px;
+    padding: clamp(15px, 2vw, 20px);
+    text-align: center;
+    margin-top: clamp(15px, 2vh, 20px);
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+}
+
+/* Slide 7: FCF */
+.fcf-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: clamp(20px, 3vh, 40px) 0;
+}
+
+.timeline-item {
+    text-align: center;
+    flex: 1;
+}
+
+.timeline-item h4 {
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+}
+
+.timeline-item p {
+    font-size: clamp(0.9rem, 1.3vw, 1.3rem);
+}
+
+.timeline-number {
+    width: clamp(50px, 7vw, 70px);
+    height: clamp(50px, 7vw, 70px);
+    background: linear-gradient(135deg, #00AAE3, #1C2E4A);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.3rem, 2.2vw, 2rem);
+    font-weight: bold;
+    margin: 0 auto clamp(10px, 1.5vh, 15px);
+}
+
+.timeline-arrow {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: #00AAE3;
+    margin: 0 clamp(10px, 2vw, 20px);
+}
+
+.penalty-chart {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: clamp(15px, 2vw, 20px);
+    margin: clamp(20px, 3vh, 30px) 0;
+    height: clamp(250px, 35vh, 350px);
+}
+
+.warning-box {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    border-radius: 10px;
+    padding: clamp(15px, 2.5vw, 25px);
+    text-align: center;
+}
+
+.warning-box h4 {
+    color: #ef4444;
+    margin-bottom: clamp(5px, 1vh, 10px);
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+}
+
+.warning-box p {
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+}
+
+/* Slide 8: Employment Practices */
+.tabs-container {
+    margin-top: clamp(20px, 3vh, 30px);
+}
+
+.tabs {
+    display: flex;
+    gap: clamp(5px, 1vw, 10px);
+    margin-bottom: clamp(20px, 3vh, 30px);
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: clamp(8px, 1.2vw, 12px) clamp(15px, 2vw, 24px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #00AAE3, #1C2E4A);
+    border-color: transparent;
+}
+
+.tab-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h3 {
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    margin-bottom: clamp(15px, 2vh, 20px);
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(20px, 3vw, 30px);
+}
+
+.principle {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: clamp(15px, 2vw, 25px);
+}
+
+.principle h4 {
+    color: #00AAE3;
+    margin-bottom: clamp(10px, 1.5vh, 15px);
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+}
+
+.principle ul {
+    list-style: none;
+}
+
+.principle li {
+    padding: clamp(3px, 0.6vh, 6px) 0;
+    opacity: 0.9;
+    font-size: clamp(0.85rem, 1.2vw, 1.2rem);
+}
+
+.principle li:before {
+    content: "• ";
+    color: #3b82f6;
+    margin-right: 5px;
+}
+
+.checklist {
+    list-style: none;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: clamp(15px, 2vw, 25px);
+}
+
+.checklist li {
+    padding: clamp(6px, 1vh, 10px) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: clamp(0.9rem, 1.3vw, 1.3rem);
+}
+
+.checklist li:last-child {
+    border-bottom: none;
+}
+
+.checklist li:before {
+    content: "✓ ";
+    color: #22c55e;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Slide 9: Grievance */
+.zero-tolerance {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    border-radius: 15px;
+    padding: clamp(20px, 3vw, 30px);
+    margin-bottom: clamp(25px, 4vh, 40px);
+}
+
+.zero-tolerance h3 {
+    color: #ef4444;
+    margin-bottom: clamp(15px, 2vh, 20px);
+    text-align: center;
+    font-size: clamp(1.4rem, 2.3vw, 2.3rem);
+}
+
+.tolerance-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: clamp(10px, 2vw, 20px);
+}
+
+.tolerance-item {
+    background: rgba(239, 68, 68, 0.2);
+    padding: clamp(8px, 1vw, 10px) clamp(15px, 2vw, 20px);
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: clamp(0.95rem, 1.4vw, 1.4rem);
+}
+
+.process-flow {
+    margin: clamp(25px, 4vh, 40px) 0;
+}
+
+.process-flow h3 {
+    font-size: clamp(1.4rem, 2.3vw, 2.3rem);
+    margin-bottom: clamp(20px, 3vh, 30px);
+}
+
+.flow-chart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: clamp(20px, 3vh, 30px);
+}
+
+.flow-step {
+    flex: 1;
+    text-align: center;
+}
+
+.step-number {
+    width: clamp(45px, 6vw, 60px);
+    height: clamp(45px, 6vw, 60px);
+    background: #00AAE3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+    font-weight: bold;
+    margin: 0 auto clamp(10px, 1.5vh, 15px);
+}
+
+.flow-step h4 {
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+    margin-bottom: clamp(5px, 1vh, 10px);
+}
+
+.flow-step p {
+    font-size: clamp(0.9rem, 1.3vw, 1.3rem);
+    opacity: 0.8;
+}
+
+.flow-arrow {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: #00AAE3;
+    margin: 0 clamp(5px, 1vw, 10px);
+}
+
+.confidentiality-note {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 10px;
+    padding: clamp(15px, 2vw, 20px);
+    text-align: center;
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+}
+
+/* Slide 10: Dismissals */
+.dismissal-section {
+    margin-bottom: clamp(20px, 3vh, 30px);
+}
+
+.dismissal-section h3 {
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    margin-bottom: clamp(15px, 2vh, 20px);
+}
+
+.reason-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(15px, 2vw, 20px);
+    margin-top: clamp(15px, 2vh, 20px);
+}
+
+.reason-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: clamp(15px, 2vw, 20px);
+    text-align: center;
+}
+
+.reason-card h4 {
+    color: #00AAE3;
+    margin-bottom: clamp(5px, 1vh, 10px);
+    font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+}
+
+.reason-card p {
+    font-size: clamp(0.9rem, 1.3vw, 1.3rem);
+    opacity: 0.8;
+}
+
+.alternatives-section {
+    margin-bottom: clamp(20px, 3vh, 30px);
+}
+
+.alternatives-section h3 {
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    margin-bottom: clamp(15px, 2vh, 20px);
+}
+
+.alternatives-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: clamp(10px, 1.5vw, 15px);
+    margin-top: clamp(15px, 2vh, 20px);
+}
+
+.alternative {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 10px;
+    padding: clamp(10px, 1.5vw, 15px);
+    text-align: center;
+    font-size: clamp(0.95rem, 1.4vw, 1.4rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: clamp(45px, 6vh, 60px);
+}
+
+.compliance-checklist {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: clamp(20px, 3vw, 30px);
+    margin-bottom: clamp(20px, 3vh, 30px);
+}
+
+.compliance-checklist h3 {
+    color: #22c55e;
+    margin-bottom: clamp(15px, 2vh, 20px);
+    font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.compliance-checklist ul {
+    list-style: none;
+}
+
+.compliance-checklist li {
+    padding: clamp(5px, 1vh, 10px) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+}
+
+.compliance-checklist li:last-child {
+    border-bottom: none;
+}
+
+.compliance-checklist li:before {
+    content: "☐ ";
+    margin-right: 10px;
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+}
+
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .toc-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        width: 90vw;
+        height: 88vh;
+        padding: 40px;
+        border-radius: 20px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle-main {
+        font-size: 3.5rem;
+    }
+    
+    .slide-title {
+        font-size: 2.5rem;
+    }
+    
+    .toc-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+    }
+    
+    .role-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .vision-box-centered {
+        padding: 30px;
+    }
+    
+    .mission-text {
+        font-size: 1.4rem;
+    }
+    
+    .vision-statement {
+        font-size: 1.8rem;
+    }
+    
+    .pillars-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .do-dont-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tabs {
+        flex-wrap: wrap;
+    }
+    
+    .flow-chart {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .flow-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .reason-cards {
+        grid-template-columns: 1fr;
+    }
+}
