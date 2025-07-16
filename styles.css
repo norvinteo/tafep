@@ -66,6 +66,110 @@ body {
     font-size: calc(clamp(0.9rem, 1.2vw, 1.3rem) * var(--font-scale)) !important;
 }
 
+/* Slide 11: Q&A */
+.qa-container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(30px, 5vh, 50px);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.qa-intro {
+    text-align: center;
+    background: rgba(0, 170, 227, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 170, 227, 0.3);
+    border-radius: 20px;
+    padding: clamp(30px, 4vw, 40px);
+}
+
+.qa-intro h3 {
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    color: #00AAE3;
+    margin-bottom: 20px;
+}
+
+.qa-intro p {
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.qa-placeholder {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: clamp(40px, 5vw, 60px);
+}
+
+.qa-icon {
+    font-size: clamp(3rem, 5vw, 4rem);
+    margin-bottom: 20px;
+}
+
+.qa-placeholder h4 {
+    font-size: clamp(1.1rem, 1.8vw, 1.8rem);
+    color: #00AAE3;
+    margin-bottom: 15px;
+}
+
+.qa-placeholder p {
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.qa-topics {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin: 0;
+}
+
+.qa-topics li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    border-radius: 15px;
+    font-size: clamp(0.9rem, 1.3vw, 1.2rem);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.qa-topics li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.qa-contact {
+    text-align: center;
+    background: rgba(28, 46, 74, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(28, 46, 74, 0.5);
+    border-radius: 20px;
+    padding: clamp(25px, 3vw, 35px);
+}
+
+.qa-contact h4 {
+    font-size: clamp(1.1rem, 1.8vw, 1.8rem);
+    color: #00AAE3;
+    margin-bottom: 15px;
+}
+
+.qa-contact p {
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.qa-contact strong {
+    color: #00AAE3;
+}
+
 /* Navigation */
 .navigation {
     position: fixed;
@@ -1413,5 +1517,13 @@ body.on-hero .fixed-logo-container {
     
     .reason-cards {
         grid-template-columns: 1fr;
+    }
+    
+    .qa-topics {
+        grid-template-columns: 1fr;
+    }
+    
+    .qa-container {
+        gap: 30px;
     }
 }

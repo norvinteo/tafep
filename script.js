@@ -1,6 +1,6 @@
 // Global variables
 let currentSlide = 1;
-const totalSlides = 10;
+const totalSlides = 11;
 let isTransitioning = false;
 
 // DOM elements
