@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- Fixed Logo -->
-    <div class="fixed-logo-container">
+    <div class="fixed-logo-container" onclick="goToSlide(1)" role="button" tabindex="0" aria-label="Go to cover page">
         <img src="mavenside-logo.svg" alt="Mavenside" class="fixed-logo">
     </div>
 
@@ -36,6 +36,20 @@
         </button>
     </nav>
 
+    <!-- Font Size Controls -->
+    <div class="font-size-controls">
+        <button class="font-size-btn" id="decreaseFontBtn" aria-label="Decrease font size">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14"/>
+            </svg>
+        </button>
+        <button class="font-size-btn" id="increaseFontBtn" aria-label="Increase font size">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14m-7-7h14"/>
+            </svg>
+        </button>
+    </div>
+
     <!-- Progress Bar -->
     <div class="progress-bar">
         <div class="progress-fill" id="progressFill"></div>
@@ -49,8 +63,26 @@
             <div class="hero-logo-container">
                 <img src="mavenside-logo.svg" alt="Mavenside" class="hero-logo">
             </div>
-            <h1 class="hero-subtitle-main">Fair Employment Excellence</h1>
+            <h1 class="hero-main-title">Fair Employment Excellence</h1>
             <p class="hero-subtitle">Building Inclusive Workplaces Through Progressive Practices</p>
+            
+            <!-- Ideal Visitors Section -->
+            <div class="ideal-visitors">
+                <h3>Ideal for:</h3>
+                <ul class="visitor-list">
+                    <li>Hiring managers</li>
+                    <li>HR officers / managers</li>
+                    <li>SME bosses</li>
+                    <li>Business owners</li>
+                </ul>
+            </div>
+            
+            <!-- Mavenside Introduction -->
+            <div class="mavenside-intro">
+                <h3>About Mavenside</h3>
+                <p>Mavenside Consulting is a Singapore-based recruitment agency transforming recruitment through meaningful connections and strategic partnerships. We specialize in talent acquisition, work pass solutions, and comprehensive HR consultancy services, helping companies build fair and inclusive workplaces.</p>
+            </div>
+            
             <p class="hero-meta">Your Partner in TAFEP Compliance & Workplace Fairness</p>
             <button class="cta-btn" onclick="nextSlide()">Begin Your Journey</button>
         </div>

@@ -11,6 +11,7 @@ const progressFill = document.getElementById('progressFill');
 const fullscreenBtn = document.getElementById('fullscreenBtn');
 const expandIcon = fullscreenBtn.querySelector('.expand-icon');
 const compressIcon = fullscreenBtn.querySelector('.compress-icon');
+let increaseFontBtn, decreaseFontBtn;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeTouchNavigation();
     initializeCharts();
     initializeFullscreen();
+    initializeFontSizeControls();
+    initializeLogoNavigation();
 });
 
 // Navigation functions
@@ -359,3 +362,84 @@ window.addEventListener('resize', () => {
         initializeCharts();
     }, 250);
 });
+
+// Font Size Controls
+let fontScale = 1;
+const minFontScale = 0.8;
+const maxFontScale = 1.5;
+const fontScaleStep = 0.1;
+
+function initializeFontSizeControls() {
+    // Find the DOM elements
+    increaseFontBtn = document.getElementById('increaseFontBtn');
+    decreaseFontBtn = document.getElementById('decreaseFontBtn');
+    
+    // Load saved font scale from localStorage
+    const savedFontScale = localStorage.getItem('tafep-font-scale');
+    if (savedFontScale) {
+        fontScale = parseFloat(savedFontScale);
+        updateFontScale();
+    }
+
+    // Add event listeners
+    if (increaseFontBtn) {
+        increaseFontBtn.addEventListener('click', increaseFontSize);
+    }
+    
+    if (decreaseFontBtn) {
+        decreaseFontBtn.addEventListener('click', decreaseFontSize);
+    }
+
+    // Update button states
+    updateFontButtonStates();
+}
+
+function increaseFontSize() {
+    if (fontScale < maxFontScale) {
+        fontScale = Math.min(fontScale + fontScaleStep, maxFontScale);
+        updateFontScale();
+        saveFontScale();
+        updateFontButtonStates();
+    }
+}
+
+function decreaseFontSize() {
+    if (fontScale > minFontScale) {
+        fontScale = Math.max(fontScale - fontScaleStep, minFontScale);
+        updateFontScale();
+        saveFontScale();
+        updateFontButtonStates();
+    }
+}
+
+function updateFontScale() {
+    document.documentElement.style.setProperty('--font-scale', fontScale);
+    // Force a style recalculation
+    document.body.offsetHeight;
+}
+
+function saveFontScale() {
+    localStorage.setItem('tafep-font-scale', fontScale.toString());
+}
+
+function updateFontButtonStates() {
+    if (increaseFontBtn) {
+        increaseFontBtn.disabled = fontScale >= maxFontScale;
+    }
+    if (decreaseFontBtn) {
+        decreaseFontBtn.disabled = fontScale <= minFontScale;
+    }
+}
+
+// Logo Navigation
+function initializeLogoNavigation() {
+    const logoContainer = document.querySelector('.fixed-logo-container');
+    if (logoContainer) {
+        logoContainer.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                goToSlide(1);
+            }
+        });
+    }
+}

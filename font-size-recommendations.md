@@ -5,7 +5,7 @@
 ### Current vs Recommended:
 ```css
 /* Hero Title - Currently: clamp(3rem, 7vw, 8rem) */
-.hero-subtitle-main {
+.hero-main-title {
     font-size: clamp(3.5rem, 8vw, 10rem);  /* Increased min, vw, and max */
 }
 
